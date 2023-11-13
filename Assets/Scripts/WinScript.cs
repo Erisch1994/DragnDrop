@@ -11,14 +11,9 @@ public class WinScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (winMessage == null)
-        {
-            Debug.LogError("WinMessage is not assigned!");
-            return;
-        }
-
-        winMessage.text = "";
         
+        winMessage.text = "";
+
         foreach (Move obj in movableObjects)
         {
             obj.OnMatched += CheckWinCondition;
@@ -31,7 +26,7 @@ public class WinScript : MonoBehaviour
 
             foreach (Move obj in movableObjects)
             {
-                if (!obj.IsMatched) 
+                if (!obj.IsMatched)
                 {
                     allMatched = false;
                     break;
@@ -40,14 +35,8 @@ public class WinScript : MonoBehaviour
 
             if (allMatched)
             {
-                winMessage.text = "Congratulations!!! Press Reset button to try again!";
+                winMessage.text = "Congratulations!!! Press the Reset button to try again!";
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
